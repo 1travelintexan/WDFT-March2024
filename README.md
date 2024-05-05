@@ -12,4 +12,4 @@
 
 ![Spotify image](https://media2.giphy.com/media/3o6oztoQJhfqh93jCE/giphy.gif?cid=ecf05e471qrmiigw1t8kmo7krnqnpxmj9f2yzx5d8rkqn5oh&ep=v1_gifs_related&rid=giphy.gif&ct=g)
 
-\*\* Everyday after the lecture your Lead Teacher will push their code here in case you want to review it for help on the labs and projects.±§
+\*\* Everyday after the lecture your Lead Teacher will push their code here in case you want to review it for help on the labs and projects.
