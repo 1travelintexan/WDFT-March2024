@@ -1,0 +1,37 @@
+body {
+  background-color: rgb(74, 68, 68);
+}
+* {
+  color: white;
+}
+
+/* This is the syntax for grabbing something with an id from our html */
+#ironhack-logo {
+  height: 100px;
+}
+#ragnar-container {
+  border: 2px solid white;
+  margin: 20px;
+  border-radius: 10px;
+  background-image: url("../assests/Ragnar.png");
+  background-size: cover;
+  height: 400px;
+}
+
+#ragnar-container h3 {
+  margin-left: 250px;
+  margin-top: 350px;
+  color: black;
+}
+
+img {
+  height: 300px;
+}
+
+.second-h2-class {
+  color: red;
+}
+
+.h2-class {
+  color: blue;
+}
