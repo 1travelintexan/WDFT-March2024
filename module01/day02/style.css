@@ -1,0 +1,35 @@
+/* Default should be for the phone */
+body {
+  background-color: aquamarine;
+  padding: 0;
+  margin: 0;
+}
+nav {
+  background-color: rgb(55, 208, 157);
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+img {
+  display: none;
+}
+
+/* Always put the media queries below */
+/* This is a break point at 500px width for the screen for the tablet size*/
+@media (min-width: 500px) {
+  nav {
+    background-color: blue;
+  }
+  img {
+    display: block;
+  }
+}
+/* This is a break point for PC or full screen viewing */
+@media (min-width: 1000px) {
+  nav {
+    background-color: rgb(212, 101, 10);
+  }
+  img {
+    content: url("./ironhack.png");
+  }
+}
