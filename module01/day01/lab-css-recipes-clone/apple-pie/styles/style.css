@@ -1,0 +1,92 @@
+/* CSS RESET - do not remove */
+/* Reset default browser styles and provide a consistent starting point */
+html {
+  box-sizing: border-box;
+  font-size: 16px;
+}
+
+/* *,
+*:before,
+*:after {
+  box-sizing: inherit;
+} */
+
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ol,
+ul {
+  margin: 0;
+  padding: 0;
+  font-weight: lighter;
+}
+
+/*  Set the font */
+body {
+  font-family: "Helvetica", sans-serif;
+  font-size: 16px;
+  margin: 0;
+  margin-bottom: 200px;
+}
+
+/* STYLES */
+/* Write your CSS below */
+
+.header {
+  background-image: url(../images/apple-pie.jpg);
+  background-position: 0 0;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 800px;
+  padding: 100px;
+}
+
+.header h1 {
+  text-align: center;
+  color: white;
+  font-size: 5em;
+  margin-top: 200px;
+}
+.intro {
+  margin: 50px 0 0 300px;
+}
+.intro section {
+  height: 100px;
+  width: 700px;
+  text-align: center;
+}
+
+.intro img {
+  width: 300px;
+  /* padding: 20px auto 30px auto; */
+}
+
+hr {
+  width: 700px;
+}
+/* .intro p {
+  padding: 20px auto 30px auto;
+  font-size: 20px;
+} */
+h3 {
+  margin-top: 50px;
+}
+
+#directions {
+  counter-reset: list;
+  margin: 20px auto 90px 20px;
+  text-align: left;
+  padding: 0 0 50px 25px;
+}
+#directions li {
+  list-style: none;
+}
+#directions li:before {
+  content: counter(list) ".) ";
+  counter-increment: list;
+}
