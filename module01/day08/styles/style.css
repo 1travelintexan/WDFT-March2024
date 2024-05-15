@@ -1,0 +1,31 @@
+body {
+  background-color: aquamarine;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+#game-screen {
+  display: none;
+  width: 90vw;
+  height: 70vh;
+}
+#game-screen h3 {
+  color: aqua;
+}
+#game-screen h3:hover {
+  color: red;
+}
+.background-blue {
+  background-color: blue;
+  color: white;
+}
+.background-purple {
+  background-color: rgb(166, 0, 255);
+  color: rgb(58, 54, 54);
+}
+
+#gameover-screen {
+  display: none;
+}
