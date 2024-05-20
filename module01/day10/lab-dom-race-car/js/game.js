@@ -15,7 +15,7 @@ class Game {
     this.width = 500;
     this.obstacles = [new Obstacle(this.gameScreen)];
     this.score = 0;
-    this.lives = 1;
+    this.lives = 5;
     this.isGameOver = false;
     this.gameIntervalId = null;
     this.gameLoopFrequency = 1000 / 60;

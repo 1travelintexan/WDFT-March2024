@@ -15,10 +15,18 @@ class Player {
     this.element.style.height = `${this.height}px`;
     this.element.style.width = `${this.width}px`;
     this.gameScreen.appendChild(this.element);
+    this.honkSound = new Audio("../honk.wav");
+    this.honkSound.volume = 0.1;
   }
   move() {
     this.left += this.directionX;
     this.top += this.directionY;
+    if (this.left <= 35) {
+      this.left = 35;
+    }
+    if (this.left >= 465 - this.width) {
+      this.left = 465 - this.width;
+    }
     this.updatePosition();
   }
   updatePosition() {
@@ -35,6 +43,13 @@ class Player {
       playerRect.top < obstacleRect.bottom &&
       playerRect.bottom > obstacleRect.top
     ) {
+      //this adds the class of spin when we return true from a collision
+      this.element.classList.add("spin");
+      setTimeout(() => {
+        this.element.classList.remove("spin");
+      }, 500);
+      //this plays the honk sound on collision
+      this.honkSound.play();
       return true;
     } else {
       return false;
