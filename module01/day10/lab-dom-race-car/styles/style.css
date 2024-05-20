@@ -1,6 +1,10 @@
+@import url("https://fonts.googleapis.com/css2?family=Danfo&display=swap");
 body {
   padding: 0;
   text-align: center;
+}
+h1 {
+  font-family: "danfo";
 }
 
 #game-intro {
