@@ -2,16 +2,13 @@
 body {
   padding: 0;
   text-align: center;
-}
-h1 {
   font-family: "danfo";
 }
 
 #game-intro {
   padding: 20px 0px;
 }
-
-#game-container {
+d #game-container {
   display: flex;
   width: 100vw;
   padding: 20px 0px;

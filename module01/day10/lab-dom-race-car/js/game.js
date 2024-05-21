@@ -1,5 +1,6 @@
 class Game {
   constructor() {
+    this.speed = 4;
     this.startScreen = document.getElementById("game-intro");
     this.gameScreen = document.getElementById("game-screen");
     this.gameEndScreen = document.getElementById("game-end");
@@ -13,8 +14,7 @@ class Game {
     );
     this.height = 600;
     this.width = 500;
-    this.obstacles = [new Obstacle(this.gameScreen)];
-    this.score = 0;
+    this.obstacles = [new Obstacle(this.gameScreen, this.speed)];
     this.lives = 5;
     this.isGameOver = false;
     this.gameIntervalId = null;
@@ -39,6 +39,7 @@ class Game {
     }
   }
   update() {
+    // console.log(this.obstacles);
     // console.log("inside the update function");
     this.player.move();
     //you have to do a loop over the this.obstacles bc they are in an array
@@ -52,13 +53,20 @@ class Game {
         this.obstacles.splice(oneObstacleIndex, 1);
         oneObstacle.element.remove();
         //then add a new red car to the this.obstacles array
-        this.obstacles.push(new Obstacle(this.gameScreen));
+        this.obstacles.push(new Obstacle(this.gameScreen, this.speed));
         this.lives -= 1;
         if (this.lives === 0) {
           this.isGameOver = true;
         }
         const livesElement = document.getElementById("lives");
         livesElement.innerText = this.lives;
+
+        //**************for the blinking player ***************/
+        this.player.blinkingPlayer();
+        setTimeout(() => {
+          clearInterval(this.player.blinkingInterval);
+          this.player.element.style.display = "block";
+        }, 1000);
       }
 
       //this checks if the top of the red car is bigger (on the bottom) than the game page
@@ -70,7 +78,7 @@ class Game {
         //always update the DOM to your new score
         const scoreElement = document.getElementById("score");
         scoreElement.innerText = this.score;
-        this.obstacles.push(new Obstacle(this.gameScreen));
+        this.obstacles.push(new Obstacle(this.gameScreen, this.speed));
       }
     });
   }

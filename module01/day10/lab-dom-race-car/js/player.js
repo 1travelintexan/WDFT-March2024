@@ -17,6 +17,8 @@ class Player {
     this.gameScreen.appendChild(this.element);
     this.honkSound = new Audio("../honk.wav");
     this.honkSound.volume = 0.1;
+    this.blinkingInterval = null;
+    this.showing = true;
   }
   move() {
     this.left += this.directionX;
@@ -54,5 +56,17 @@ class Player {
     } else {
       return false;
     }
+  }
+  blinkingPlayer() {
+    this.blinkingInterval = setInterval(() => {
+      console.log("blinking,", this.showing);
+      if (this.showing) {
+        this.element.style.display = "block";
+        this.showing = !this.showing;
+      } else {
+        this.element.style.display = "none";
+        this.showing = !this.showing;
+      }
+    }, 200);
   }
 }

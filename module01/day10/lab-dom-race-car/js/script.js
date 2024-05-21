@@ -12,16 +12,19 @@ window.onload = function () {
     console.log("a key was pressed", event);
     if (event.code === "ArrowRight") {
       //then we move our player to the right
-      ourGame.player.directionX = 4;
+      ourGame.player.directionX = ourGame.speed;
     } else if (event.code === "ArrowLeft") {
       //then we move our player to the left
-      ourGame.player.directionX = -4;
+      ourGame.player.directionX = -ourGame.speed;
     } else if (event.code === "ArrowUp") {
       //then we move our player to the up
-      ourGame.player.directionY = -4;
+      ourGame.player.directionY = -ourGame.speed;
     } else if (event.code === "ArrowDown") {
       //then we move our player to the down
-      ourGame.player.directionY = 4;
+      ourGame.player.directionY = ourGame.speed;
+    } else if (event.code === "KeyR") {
+      ourGame.player.element.src = "../images/racecar.png";
+      ourGame.speed = 20;
     }
   });
   document.addEventListener("keyup", () => {
@@ -32,5 +35,6 @@ window.onload = function () {
   function startGame() {
     console.log("start game");
     ourGame.start();
+    console.log(ourGame.player);
   }
 };
