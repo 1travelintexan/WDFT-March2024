@@ -10,7 +10,7 @@ class Game {
       180,
       400,
       250,
-      "./images/car.png"
+      "/images/car.png"
     );
     this.height = 600;
     this.width = 500;
