@@ -1,26 +1,19 @@
-function Tweet() {
+import { ProfileImage } from "./ProfileImage";
+import User from "./User";
+
+function Tweet(props) {
+  console.log("props on the Tweet component", props);
   return (
     <div className="tweet">
-      <img
-        src="https://education-team-2020.s3.eu-west-1.amazonaws.com/web-dev/ih_logo.jpeg"
-        className="profile"
-        alt="profile"
-      />
+      <ProfileImage image={props.data.user.image} />
 
       <div className="body">
         <div className="top">
-          <span className="user">
-            <span className="name">Ragnar</span>
-            <span className="handle">@ironhack</span>
-          </span>
-
+          <User name={props.data.user.name} handle={props.data.user.handle} />
           <span className="timestamp">Nov 30, 2020</span>
         </div>
 
-        <p className="message">
-          On December 7th, we will be hosting a #webinar that will introduce you
-          to #SQL! Are you ready? 🚀
-        </p>
+        <p className="message">{props.data.message}</p>
 
         <div className="actions">
           {/* Font Awesome icons */}
