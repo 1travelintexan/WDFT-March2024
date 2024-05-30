@@ -69,3 +69,10 @@ nav {
   align-items: center;
   justify-content: space-around;
 }
+a {
+  color: wheat;
+}
+a.active {
+  color: rgb(0, 255, 4);
+  text-decoration: underline;
+}
