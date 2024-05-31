@@ -1,0 +1,36 @@
+#root {
+  text-align: center;
+}
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+}
+form {
+  display: flex;
+  flex-direction: column;
+}
+input {
+  margin: 10px;
+}
+.pet-card {
+  border: 2px solid white;
+  margin: 20px;
+  padding: 30px;
+}
+
+.pet-page-container {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  background-color: rgb(32, 74, 60);
+}
+.pets-container {
+  width: 50%;
+}
+.favorites-container {
+  width: 50%;
+}
