@@ -104,7 +104,7 @@ const chores = ["Walk Ragnar", "Wash clothes", "dishes"];
 const fetchChars = async () => {
   try {
     const response = await fetch("https://fakestoreapi.com/products");
-    const parsed = response.json();
+    const parsed = await response.json();
     console.log("here inside the async", parsed);
   } catch (err) {
     console.log(err);
