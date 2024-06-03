@@ -15,13 +15,18 @@ const PetPage = (props) => {
                 <h5>Pet Name: {onePet.name}</h5>
                 <h5>Pet Type: {onePet.type}</h5>
                 {props.favoritePets.includes(onePet) ? null : (
-                  <button
-                    onClick={() => {
-                      props.handleAddToFavorites(onePet);
-                    }}
-                  >
-                    Add to Favorites
-                  </button>
+                  <>
+                    <button
+                      onClick={() => {
+                        props.handleAddToFavorites(onePet);
+                      }}
+                    >
+                      Add to Favorites
+                    </button>
+                    <Link to={`/edit/${onePet.id}`}>
+                      <button>Edit</button>
+                    </Link>
+                  </>
                 )}
               </div>
             );

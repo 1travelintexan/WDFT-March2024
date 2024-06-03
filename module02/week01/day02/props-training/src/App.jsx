@@ -50,12 +50,12 @@ function App() {
       {/* theName is 'the name' of the prop and {name} is the value */}
       <Navbar />
       <h1>All about props</h1>
-      {arrayOfPets.map((pet, index) => {
+      {/* {arrayOfPets.map((pet, index) => {
         return <PetCard onePet={pet} />;
-      })}
-      {/* <PetCard onePet={arrayOfPets[0]} />
+      })} */}
+      <PetCard onePet={arrayOfPets[0]} />
       <PetCard onePet={arrayOfPets[1]} />
-      <PetCard onePet={arrayOfPets[2]} /> */}
+      <PetCard onePet={arrayOfPets[2]} />
     </>
   );
 }

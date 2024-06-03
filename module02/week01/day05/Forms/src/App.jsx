@@ -4,6 +4,7 @@ import { Route, Routes } from "react-router-dom";
 import HomePage from "./pages/HomePage";
 import PetPage from "./pages/PetPage";
 import CreateAPet from "./components/CreateAPet";
+import { EditPet } from "./pages/EditPet";
 function App() {
   const [pets, setPets] = useState([
     { id: 1, name: "Ragnar", type: "dog" },
@@ -34,6 +35,10 @@ function App() {
         <Route
           path="/create-a-pet"
           element={<CreateAPet pets={pets} setPets={setPets} />}
+        />
+        <Route
+          path="/edit/:petId"
+          element={<EditPet pets={pets} setPets={setPets} />}
         />
         {/* <Route path="/about" element={<AboutPage />} />
         <Route path="/ragnar" element={<RagnarPage />} />

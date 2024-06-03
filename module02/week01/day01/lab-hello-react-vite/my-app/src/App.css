@@ -1,0 +1,43 @@
+body {
+  padding: 20px;
+}
+header {
+  background-color: rgb(30, 30, 74);
+  padding: 20px 40px 60px 40px;
+}
+.images-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.images-container img {
+  /* margin: 20px; */
+}
+.header-text {
+  color: white;
+  width: 50%;
+}
+h1 {
+  font-size: 4rem;
+}
+button {
+  padding: 10px;
+  font-weight: bold;
+  margin: 20px;
+}
+.jonnys-container {
+  margin: 80px 40px;
+  display: flex;
+  justify-content: space-around;
+}
+.jonnys-container img {
+  height: 75px;
+}
+article h5 {
+  margin: 10px 0 0 0;
+  padding: 0;
+}
+article p {
+  margin: 5px;
+  padding: 0;
+}

@@ -36,6 +36,7 @@ function App() {
     setProgram("");
     setGraduated(false);
     setGraduationYear("");
+    
   };
 
   return (
