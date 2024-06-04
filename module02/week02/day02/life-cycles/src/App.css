@@ -40,3 +40,9 @@
 .read-the-docs {
   color: #888;
 }
+.recipe-card {
+  border: 1px solid white;
+  margin: 20px;
+  padding: 10px;
+  border-radius: 2rem;
+}
