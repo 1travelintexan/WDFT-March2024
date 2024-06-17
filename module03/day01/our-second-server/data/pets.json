@@ -1,0 +1,17 @@
+[
+  {
+    "petName": "Ragnar",
+    "petAge": 3,
+    "petType": "dog"
+  },
+  {
+    "petName": "Honey",
+    "petAge": 9,
+    "petType": "dog"
+  },
+  {
+    "petName": "Ghost",
+    "petAge": 12,
+    "petType": "snake"
+  }
+]

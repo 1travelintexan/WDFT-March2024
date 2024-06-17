@@ -13,7 +13,6 @@ img {
   height: 70px;
 }
 
-
 table {
   width: 100%;
   border-collapse: collapse;
@@ -54,7 +53,6 @@ td {
   background-color: #fd9a9a;
 }
 
-
 .btn-like {
   border: none;
   text-decoration: none;
@@ -66,13 +64,13 @@ td {
   width: 34px;
   height: 34px;
   border-radius: 50%;
-  padding-top: 4px;
+  /* padding-top: 4px; */
   margin: 0 auto;
 }
 
 .btn-like:hover {
   transition: 0.2s;
-  background-color: #a9a7a7;  
+  background-color: #a9a7a7;
 }
 
 .btn-like img {
@@ -94,11 +92,11 @@ td {
   align-items: center;
   height: 34px;
   padding: 3px 16px;
-  margin: 0 auto;  
+  margin: 0 auto;
   border-radius: 4px;
 }
 
 .btn-delete:hover {
   transition: 0.2s;
-  background-color: #a9a7a7;  
+  background-color: #a9a7a7;
 }
