@@ -20,9 +20,17 @@ function SignupPage() {
     //always stop the page from reloading when we submit a form
     e.preventDefault();
     // Create an object representing the request body
-    const requestBody = { email, password, username };
+    //the object is ok for creating a user, but with an image it needs to be form data
+    //const requestBody = { email, password, username };
+
+    const image = e.target.image.files[0];
+    const myFormData = new FormData();
+    myFormData.append("imageUrl", image); //myFormData is like an object {imageUrl: image}
+    myFormData.append("username", username);
+    myFormData.append("email", email);
+    myFormData.append("password", password);
     axios
-      .post("http://localhost:5005/auth/signup", requestBody)
+      .post("http://localhost:5005/auth/signup", myFormData)
       .then(() => {
         nav("/login");
       })
@@ -47,6 +55,9 @@ function SignupPage() {
       <h1>Sign Up</h1>
 
       <form onSubmit={handleSignupSubmit}>
+        <label>Name:</label>
+        <input type="text" name="name" value={username} onChange={handleName} />
+
         <label>Email:</label>
         <input type="email" name="email" value={email} onChange={handleEmail} />
 
@@ -57,9 +68,8 @@ function SignupPage() {
           value={password}
           onChange={handlePassword}
         />
-
-        <label>Name:</label>
-        <input type="text" name="name" value={username} onChange={handleName} />
+        <label>User Image:</label>
+        <input type="file" name="image" />
 
         <button type="submit">Sign Up</button>
       </form>
