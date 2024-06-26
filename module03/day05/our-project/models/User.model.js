@@ -19,6 +19,11 @@ const userSchema = new Schema(
       type: String,
       required: [true, "Password is required."],
     },
+    userImage: {
+      type: String,
+      default:
+        "https://unsplash.com/photos/red-texas-store-signage-BXXYZ4HtGxU",
+    },
   },
   {
     // this second object adds extra properties: `createdAt` and `updatedAt`

@@ -3,8 +3,14 @@ const UserModel = require("../models/User.model");
 const bcryptjs = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const { isAuthenticated } = require("../middlewares/jwt.middleware");
+const uploader = require("../middlewares/cloudinary.config.js");
+router.post("/signup", uploader.single("imageUrl"), async (req, res) => {
+  let userImage;
+  if (req.file) {
+    userImage = req.file.path;
+  }
+  console.log("here is the file from cloudinary", req.file);
 
-router.post("/signup", async (req, res) => {
   // Use regex to validate the email format
   // const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
   // if (!emailRegex.test(req.body.email)) {
@@ -38,14 +44,11 @@ router.post("/signup", async (req, res) => {
       // console.log("here is the salt", salt);
       // console.log("here is the password", req.body.password);
       // console.log("here is the hashed password", hashedPassword);
-      const userToCreate = {
-        username: req.body.username,
-        email: req.body.email,
-        password: hashedPassword,
-      };
+
       const createdUser = await UserModel.create({
         ...req.body,
         password: hashedPassword,
+        userImage,
       });
       console.log("User created", createdUser);
       res.status(201).json(createdUser);
@@ -80,7 +83,9 @@ router.post("/login", async (req, res) => {
           //third argument is the options saying when to expire and which algorithm to use
           { algorithm: "HS256", expiresIn: "6h" }
         );
-        res.status(200).json({ message: "Login successful", authToken });
+        res
+          .status(200)
+          .json({ message: "Login successful", authToken: authToken });
       } else {
         res.status(500).json({
           errorMessage: "Invalid password",
@@ -105,6 +110,17 @@ router.patch("/update-user/:id", async (req, res) => {
     });
 
     res.status(201).json(updatedUser);
+  } catch (error) {
+    console.log(error);
+  }
+});
+
+//this is the profile route that gets all the info for the current user from the DB
+router.get("/profile/:userId", async (req, res) => {
+  try {
+    const currentUser = await UserModel.findById(req.params.userId);
+    console.log("current user", currentUser);
+    res.status(200).json(currentUser);
   } catch (error) {
     console.log(error);
   }

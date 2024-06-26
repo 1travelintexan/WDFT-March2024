@@ -3,9 +3,9 @@ const jwt = require("jsonwebtoken");
 // Instantiate the JWT token validation middleware
 const isAuthenticated = (req, res, next) => {
   try {
-    if (req.headers.authorization) {
+    if (req.headers.authorization.split(" ")[0] === "Bearer") {
       // Get the token string from the authorization header - "Bearer eyJh5kp9..."
-      const token = req.headers.authorization;
+      const token = req.headers.authorization.split(" ")[1];
       // Verify the token. Returns payload if the token is valid, otherwise throws an error
       const theDecodedToken = jwt.verify(token, process.env.TOKEN_SECRET);
 
