@@ -2,6 +2,7 @@ import { useContext, useEffect, useState } from "react";
 import "./ProfilePage.css";
 import { AuthContext } from "../../context/auth.context";
 import axios from "axios";
+import MyCarousel from "../../components/MyCarousel";
 
 function ProfilePage() {
   const [profileUser, setProfileUser] = useState(null);
@@ -28,6 +29,7 @@ function ProfilePage() {
         alt={profileUser?.username}
         style={{ height: "250px" }}
       />
+      <MyCarousel />
     </div>
   );
 }

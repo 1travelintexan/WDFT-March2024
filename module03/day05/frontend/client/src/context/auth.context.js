@@ -26,8 +26,10 @@ const AuthContextWrapper = ({ children }) => {
       });
       console.log("response from verify ", data);
       setCurrentUser(data.user);
-      setIsLoading(false);
-      setIsLoggedIn(true);
+      setTimeout(() => {
+        setIsLoading(false);
+        setIsLoggedIn(true);
+      }, 2000);
     } catch (error) {
       console.log("error authenticating user", error);
       setCurrentUser(null);

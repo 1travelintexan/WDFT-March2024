@@ -1,32 +1,38 @@
 import { useContext } from "react";
-import "./Navbar.css";
-import { Link } from "react-router-dom";
+import Container from "react-bootstrap/Container";
+import Nav from "react-bootstrap/Nav";
+import Navbar from "react-bootstrap/Navbar";
+import NavDropdown from "react-bootstrap/NavDropdown";
 import { AuthContext } from "../../context/auth.context";
 
-function Navbar() {
-  //this grabs the handle Logout function from the auth context
-  const { handleLogout, currentUser } = useContext(AuthContext);
-
+function NavbarComponent() {
+  const { handleLogout } = useContext(AuthContext);
   return (
-    <nav>
-      <Link to="/">
-        <button>Home</button>
-      </Link>
+    <Navbar
+      expand="lg"
+      className="bg-body-tertiary"
+      bg="dark"
+      data-bs-theme="dark"
+    >
+      <Container>
+        <Navbar.Brand href="#home" id="logo">
+          Our Full Stack App
+        </Navbar.Brand>
+        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+        <Navbar.Collapse id="basic-navbar-nav">
+          <Nav className="me-auto">
+            <Nav.Link href="/">Home</Nav.Link>
 
-      {currentUser ? (
-        <button onClick={handleLogout}>Logout</button>
-      ) : (
-        <>
-          <Link to="/signup">
-            <button>Sign Up</button>
-          </Link>
-          <Link to="/login">
-            <button>Login</button>
-          </Link>
-        </>
-      )}
-    </nav>
+            <NavDropdown title="login-stuff" id="basic-nav-dropdown">
+              <NavDropdown.Item href="/signup">Sign Up</NavDropdown.Item>
+              <NavDropdown.Item href="/login">Login</NavDropdown.Item>
+              <NavDropdown.Item onClick={handleLogout}>Logout</NavDropdown.Item>
+            </NavDropdown>
+          </Nav>
+        </Navbar.Collapse>
+      </Container>
+    </Navbar>
   );
 }
 
-export default Navbar;
+export default NavbarComponent;

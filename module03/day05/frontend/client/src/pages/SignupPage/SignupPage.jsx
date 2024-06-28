@@ -25,7 +25,7 @@ function SignupPage() {
 
     const image = e.target.image.files[0];
     const myFormData = new FormData();
-    myFormData.append("imageUrl", image); //myFormData is like an object {imageUrl: image}
+    myFormData.append("imageUrl", image); //myFormData is like an object
     myFormData.append("username", username);
     myFormData.append("email", email);
     myFormData.append("password", password);
