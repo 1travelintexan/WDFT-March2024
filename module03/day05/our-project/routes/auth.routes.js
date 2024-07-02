@@ -4,7 +4,63 @@ const bcryptjs = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const { isAuthenticated } = require("../middlewares/jwt.middleware");
 const uploader = require("../middlewares/cloudinary.config.js");
+const nodemailer = require("nodemailer");
+
+const sendMail = (userEmail) => {
+  //first return a new promise thats trying to send the email
+  return new Promise((res, rej) => {
+    const transporter = nodemailer.createTransport({
+      service: "gmail",
+      auth: {
+        user: process.env.NODEMAILER_APP_EMAIL,
+        pass: process.env.NODEMAILER_APP_PASSWORD,
+      },
+    });
+    //this configs the mail that is being send, the subject and body of the email
+    const mail_configs = {
+      from: process.env.NODEMAILER_APP_EMAIL,
+      to: userEmail,
+      subject: "Testing for nodemailer",
+      // text: "Just checking, let me know",
+      html: `<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        background-color: black;
+      }
+        
+    </style>
+  </head>
+  <body>
+    <h1>is the background black</h1>
+  </body>
+</html>
+`,
+    };
+    //this is what is actually sending the main
+    transporter.sendMail(mail_configs, function (error, info) {
+      if (error) {
+        console.log("Houston we have a problem", error);
+        return rej({ message: `there was a problem sending`, error });
+      } else {
+        console.log("It was all good!", info);
+        res({ message: "Everything was all good" });
+      }
+    });
+  });
+};
+
+//signup route with image from front end
 router.post("/signup", uploader.single("imageUrl"), async (req, res) => {
+  sendMail("horheyinc8@gmail.com")
+    .then((res) => {
+      console.log("the response to the nodemailer", res);
+    })
+    .catch((err) => console.log(err));
   let userImage;
   if (req.file) {
     userImage = req.file.path;
